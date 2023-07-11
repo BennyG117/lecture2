@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import {Route, Routes, Link} from 'react-router-dom';
+
+import SearchPoke from './components/SearchPoke';
+import OnePoke from './components/OnePoke';
+import AllPoke from './components/AllPoke';
 
 function App() {
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to Pokedex</h1>
+      <Link className="navLink" to={"/"}>HOME</Link>
+      |
+      <Link className="navLink" to={"/search"}>SEARCH</Link>
+      |
+      <Link className="navLink" to={"/all"}>ALL POKEMON</Link>
+
+
+
+<Routes>
+    <Route path='/search' element={<SearchPoke/>}></Route>
+    <Route path='/one/:poke' element={<OnePoke/>}></Route>
+    <Route path='/all' element={<AllPoke/>}></Route>
+
+
+
+</Routes>
+
+
     </div>
   );
 }
